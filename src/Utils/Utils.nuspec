@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Utils.NET</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>Nayan Shah</authors>
+    <owners>Nayan Shah</owners>
+    <licenseUrl>https://raw.githubusercontent.com/nayanshah/UtilsDotNet/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/nayanshah/UtilsDotNet</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <copyright>Copyright 2015</copyright>
+    <tags>C# .NET Utility</tags>
+  </metadata>
+</package>
