@@ -1,0 +1,23 @@
+
+# VS files
+
+*.suo
+*.pdb
+*.dll
+*.[Cc]ache
+
+[Oo]bj/
+[Bb]in/
+[Dd]ebug/
+[Rr]elease/
+
+
+# NCrunch
+
+*ncrunch*
+*crunch*.local.xml
+
+
+# Test files
+*.testsettings
+
