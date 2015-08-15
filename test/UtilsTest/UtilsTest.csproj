@@ -50,8 +50,18 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="CommandLine\ArgumentParserTest.cs" />
+    <Compile Include="CommandLine\ArgumentParserUtilsTest.cs" />
+    <Compile Include="CommandLine\TestParams.cs" />
     <Compile Include="Templates\TemplateTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Utils\Utils.csproj">
+      <Project>{0D4AF039-134F-4903-8626-B3C4C52959B4}</Project>
+      <Name>Utils</Name>
+      <MetaBinaryReference>$(DROPROOT)\DONE\Utils.dll</MetaBinaryReference>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

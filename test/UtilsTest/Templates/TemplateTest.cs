@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace UtilsTest.Temlates
+namespace UtilsTest.Templates
 {
     [TestClass]
     public class TemplateTest
