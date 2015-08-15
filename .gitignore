@@ -5,12 +5,13 @@
 *.pdb
 *.dll
 *.[Cc]ache
+*.user
 
 [Oo]bj/
 [Bb]in/
 [Dd]ebug/
 [Rr]elease/
-
+[Dd]eleted/
 
 # NCrunch
 
