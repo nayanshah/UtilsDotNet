@@ -6,7 +6,12 @@ assembly_info:
   assembly_version: '{version}'
   assembly_file_version: '{version}'
 
+build:
+  publish_nuget: true
+
 artifacts:
   - path: src\Utils\bin\Debug\Utils.dll
     name: dll
 
+  - path: '**\*.nupkg'
+    name: nuget
