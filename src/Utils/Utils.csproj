@@ -39,13 +39,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandLine\ArgumentData.cs" />
+    <Compile Include="CommandLine\ArgumentParser.cs" />
+    <Compile Include="CommandLine\ArgumentParserUtils.cs" />
+    <Compile Include="CommandLine\ArgumentType.cs" />
+    <Compile Include="CommandLine\DetailsAttribute.cs" />
+    <Compile Include="CommandLine\OptionalAttribute.cs" />
+    <Compile Include="CommandLine\ParamAttribute.cs" />
+    <Compile Include="Logging\ConsoleLogger.cs" />
+    <Compile Include="Logging\ILogger.cs" />
+    <Compile Include="Logging\LogHelper.cs" />
+    <Compile Include="Logging\LogType.cs" />
+    <Compile Include="Logging\MockLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Templates\CommandLineUsage.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommandLineUsage.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CommandLineUsageParams.cs" />
     <Compile Include="Templates\ITemplate.cs" />
     <Compile Include="Templates\TemplateBase.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="CommandLine\" />
     <Folder Include="Extensions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\CommandLineUsage.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CommandLineUsage.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
