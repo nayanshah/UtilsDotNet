@@ -7,9 +7,6 @@ assembly_info:
   assembly_file_version: '{version}'
 
 artifacts:
-  - path: '**\*.nupkg'
-    name: nuget
-
-  - path: '**\*.dll'
+  - path: src\Utils\bin\Debug\Utils.dll
     name: dll
 
