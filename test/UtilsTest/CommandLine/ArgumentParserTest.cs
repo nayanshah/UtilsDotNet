@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Utils.CommandLine;
 using Utils.Logging;
@@ -137,7 +138,10 @@ namespace UtilsTest.CommandLine
             string processName = Process.GetCurrentProcess().ProcessName;
             string expectedUsage = string.Format("{0}{1}{2}", Environment.NewLine, processName, ExpectedUsage);
             string actualUsage = ArgumentParser<TestParams>.Usage();
-            Assert.AreEqual(expectedUsage, actualUsage);
+
+            string expected = Regex.Replace(expectedUsage, "\\s+", string.Empty);
+            string actual = Regex.Replace(actualUsage, "\\s+", string.Empty);
+            Assert.AreEqual(expected, actual);
         }
 
         /// <summary>
