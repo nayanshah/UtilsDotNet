@@ -7,10 +7,11 @@
     <authors>Nayan Shah</authors>
     <owners>Nayan Shah</owners>
     <licenseUrl>https://raw.githubusercontent.com/nayanshah/UtilsDotNet/master/LICENSE</licenseUrl>
+    <iconUrl>https://github.com/nayanshah/UtilsDotNet/raw/master/res/128/UtilsDotNet.png</iconUrl>
     <projectUrl>https://github.com/nayanshah/UtilsDotNet</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
+    <description>C# utility components - Argument Parser (Console), Logging, T4 Templates Base, Process helper</description>
     <copyright>Copyright 2015</copyright>
-    <tags>C# .NET Utility</tags>
+    <tags>C# .NET Utility Console Parser Logging Library Extensions Helpers</tags>
   </metadata>
 </package>
