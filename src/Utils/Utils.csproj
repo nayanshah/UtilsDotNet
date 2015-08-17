@@ -46,6 +46,10 @@
     <Compile Include="CommandLine\DetailsAttribute.cs" />
     <Compile Include="CommandLine\OptionalAttribute.cs" />
     <Compile Include="CommandLine\ParamAttribute.cs" />
+    <Compile Include="Gates\GateKeeper.cs" />
+    <Compile Include="Gates\IGate.cs" />
+    <Compile Include="Gates\MockGate.cs" />
+    <Compile Include="Gates\Enums.cs" />
     <Compile Include="Logging\ConsoleLogger.cs" />
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\LogHelper.cs" />
