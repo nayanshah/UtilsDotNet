@@ -5,7 +5,7 @@
 *.pdb
 *.dll
 *.[Cc]ache
-*.user
+*.user*
 
 [Oo]bj/
 [Bb]in/
@@ -15,7 +15,6 @@
 
 # NCrunch
 
-*ncrunch*
 *crunch*.local.xml
 
 
