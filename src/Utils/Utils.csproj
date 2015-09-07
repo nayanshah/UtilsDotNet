@@ -46,6 +46,10 @@
     <Compile Include="CommandLine\DetailsAttribute.cs" />
     <Compile Include="CommandLine\OptionalAttribute.cs" />
     <Compile Include="CommandLine\ParamAttribute.cs" />
+    <Compile Include="Dgml\Graph.cs" />
+    <Compile Include="Dgml\GraphHelper.cs" />
+    <Compile Include="Dgml\Link.cs" />
+    <Compile Include="Dgml\Node.cs" />
     <Compile Include="Gates\GateKeeper.cs" />
     <Compile Include="Gates\IGate.cs" />
     <Compile Include="Gates\MockGate.cs" />
