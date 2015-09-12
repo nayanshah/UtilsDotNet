@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Utils.NET by nayanshah</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Utils.NET</h1>
+        <h2>Collection of utilities for .NET projects</h2>
+        <a href="https://github.com/nayanshah/UtilsDotNet" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="utilsnet-utilsdotnet" class="anchor" href="#utilsnet-utilsdotnet" aria-hidden="true"><span class="octicon octicon-link"></span></a>Utils.NET (UtilsDotNet)</h1>
+
+<p>Light weight collection of utilities for .NET projects</p>
+
+<ul>
+<li><em>ArgumentParser</em></li>
+<li><em>Logging</em></li>
+<li><em>T4 Templates Base</em></li>
+<li><em>Process helper</em></li>
+</ul>
+
+<p><a href="https://ci.appveyor.com/project/nayanshah/utilsdotnet"><img src="https://ci.appveyor.com/api/projects/status/d6tdpjcbwcrgd68f?svg=true" alt="Build status"></a></p>
+
+<h2>
+<a id="argument-parser" class="anchor" href="#argument-parser" aria-hidden="true"><span class="octicon octicon-link"></span></a>Argument Parser</h2>
+
+<h5>
+<a id="parse--validate-arguments-or-print-usage-with-a-single-line" class="anchor" href="#parse--validate-arguments-or-print-usage-with-a-single-line" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parse &amp; validate arguments or print usage with a single line</h5>
+
+<ul>
+<li>
+<p>Declarative syntax</p>
+
+<ul>
+<li>Properties can be primitive types (<code>string</code>, <code>int</code>, <code>bool</code>, etc) or any <code>Enum</code> or collections (<code>IEnumerable&lt;string&gt;</code>, <code>IEnumerable&lt;Enum&gt;</code>, etc) </li>
+<li>Arguments are required unless <code>[Optional]</code> is specified</li>
+<li>Default values can be specified, e.g. <code>[Optional("bot")</code>, <code>[Optional("Saturday,Sunday")]</code>
+</li>
+</ul>
+</li>
+<li>
+<p>Flexible parsing</p>
+
+<ul>
+<li>Supports nearly all variations =&gt;  <code>/arg value</code>, <code>/arg:value</code>, <code>/arg=value</code>, <code>-arg value</code>, <code>--arg value</code>, <code>--arg=value</code>
+</li>
+<li>Collections can be space, semicolon or comma separated</li>
+</ul>
+</li>
+<li>
+<p>Validation</p>
+
+<ul>
+<li>Checks if arguments match expected types</li>
+<li>Error if required argument is null or </li>
+<li>Automatically print help text on <code>/h</code>, <code>/?</code>, <code>-h</code>, <code>--help</code>
+</li>
+</ul>
+</li>
+</ul>
+
+<h5>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h5>
+
+<div class="highlight highlight-csharp"><pre>    [Details(<span class="pl-s"><span class="pl-pds">"</span>Description of the tool<span class="pl-pds">"</span></span>)]
+    <span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Parameters</span>
+    {
+        [Param(key: <span class="pl-s"><span class="pl-pds">"</span>p<span class="pl-pds">"</span></span>, longKey: <span class="pl-s"><span class="pl-pds">"</span>project<span class="pl-pds">"</span></span>)]
+        [Details(<span class="pl-s"><span class="pl-pds">"</span>Project name. e.g. utils<span class="pl-pds">"</span></span>)]
+        <span class="pl-k">public</span> <span class="pl-k">string</span> <span class="pl-en">Project</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+
+        [Param(longKey: <span class="pl-s"><span class="pl-pds">"</span>mode<span class="pl-pds">"</span></span>)]
+        [Details(<span class="pl-s"><span class="pl-pds">"</span>Enums are automatically parsed<span class="pl-pds">"</span></span>)]
+        <span class="pl-k">public</span> Mode <span class="pl-en">Mode</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+
+        [Param(key: <span class="pl-s"><span class="pl-pds">"</span>u<span class="pl-pds">"</span></span>, longKey: <span class="pl-s"><span class="pl-pds">"</span>user<span class="pl-pds">"</span></span>)]
+        [Details(<span class="pl-s"><span class="pl-pds">"</span>User name. Optional and has default value<span class="pl-pds">"</span></span>)]
+        [Optional(<span class="pl-s"><span class="pl-pds">"</span>bot<span class="pl-pds">"</span></span>)]
+        <span class="pl-k">public</span> <span class="pl-k">string</span> <span class="pl-en">User</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+
+        [Param(ArgumentType.ParamArray, longKey: <span class="pl-s"><span class="pl-pds">"</span>run<span class="pl-pds">"</span></span>)]
+        [Details(<span class="pl-s"><span class="pl-pds">"</span>IEnumberable collection for ParamArray arguments<span class="pl-pds">"</span></span>)]
+        [Optional]
+        <span class="pl-k">public</span> IEnumerable&lt;<span class="pl-k">string</span>&gt; <span class="pl-en">Tasks</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+
+        [Param(ArgumentType.Flag, <span class="pl-s"><span class="pl-pds">"</span>v<span class="pl-pds">"</span></span>)]
+        [Details(<span class="pl-s"><span class="pl-pds">"</span>Boolean flags<span class="pl-pds">"</span></span>)]
+        [Optional]
+        <span class="pl-k">public</span> <span class="pl-k">bool</span> <span class="pl-en">Verbose</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+    }
+}</pre></div>
+
+<div class="highlight highlight-csharp"><pre>    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">class</span> <span class="pl-en">Program</span>
+    {
+        <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">int</span> <span class="pl-en">Main</span>(<span class="pl-k">string[]</span> <span class="pl-smi">args</span>)
+        {
+          Parameters parameters = ArgumentParser&lt;Parameters&gt;.Parse();
+          <span class="pl-k">if</span>(parameters == <span class="pl-c1">null</span>) {
+            ArgumentParser&lt;Parameters&gt;.PrintUsage();
+            <span class="pl-k">return</span> -<span class="pl-c1">1</span>;
+          }
+
+          Console.WriteLine(<span class="pl-s"><span class="pl-pds">"</span>Hello from {0}<span class="pl-pds">"</span></span>, parameters.User<span class="pl-s"><span class="pl-pds">"</span>);</span>
+<span class="pl-s">          return 0;</span>
+<span class="pl-s">        }</span>
+<span class="pl-s">    }</span>
+<span class="pl-s">}</span></pre></div>
+
+<p>Automatically generated help text</p>
+
+<pre><code>Description of the tool
+
+  -p             --project                Project name. e.g. utils
+                 --mode                   Enums are automatically parsed
+
+  -h             --help                   Prints this help text (Optional)
+  -u             --user                   User name. Optional and has default value (Optional)
+                 --run                    IEnumberable collection for ParamArray arguments (Optional)
+  -v                                      Boolean flags (Optional)
+</code></pre>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/nayanshah/UtilsDotNet/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/nayanshah/UtilsDotNet/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/nayanshah/UtilsDotNet"></a> is maintained by <a href="https://github.com/nayanshah">nayanshah</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
