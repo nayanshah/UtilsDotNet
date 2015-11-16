@@ -29,4 +29,4 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 [assembly: AssemblyVersion("1.0.*")]
 
-[assembly: InternalsVisibleTo("UtilsTest")]
+[assembly: InternalsVisibleTo("UtilsTest, PublicKey=002400000480000094000000060200000024000052534131000400000100010017e5c851382bc7fa4c66edcb329c5f679da5aa122ef2c9f9bfef1f5e1ae029ad5d1ace2ba93b40863bcd78d1bd7fdf357008b9a714b358c775617dec0fce1654910638f4c0460cfa560a75c8467b252f69fd98dfff0499d9ae1fa67edfefd5ab4bc54399c7f3eab6034f901d026b75b43b537945946a07ab187e370c2defd8da")]
