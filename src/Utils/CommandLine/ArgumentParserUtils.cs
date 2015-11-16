@@ -12,7 +12,7 @@ namespace Utils.CommandLine
     {
         public static Tuple<string, string> ParseParam(string arg)
         {
-            Regex r = new Regex(@"[/\-]{1}(?<Key>\w[\w\-]*)(?<Value>[:=].+)?");
+            Regex r = new Regex(@"^([/\-]|\-\-)(?<Key>\w[\w\-]*)(?<Value>[:=].+)?");
             Match m = r.Match(arg);
             if (!m.Success)
             {

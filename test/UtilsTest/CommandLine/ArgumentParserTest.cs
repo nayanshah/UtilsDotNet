@@ -23,11 +23,11 @@ namespace UtilsTest.CommandLine
         [TestMethod]
         public void TestArgumentParser_Parse_Basic()
         {
-            string[] args = { "/s", "svalue", "/a", "a1value", "a2value", "-f" };
+            string[] args = { "/s", "s-hyphen-value", "/a", "a1value", "a2value", "-f" };
             TestParams testParams = ArgumentParser<TestParams>.Parse(args);
             Assert.IsNotNull(testParams);
             Assert.IsTrue(testParams.IsFree);
-            Assert.AreEqual("svalue", testParams.String);
+            Assert.AreEqual("s-hyphen-value", testParams.String);
             Assert.AreEqual(2, testParams.Array.Count());
             Assert.IsTrue(testParams.Array.Contains("a1value"));
             Assert.IsTrue(testParams.Array.Contains("a2value"));

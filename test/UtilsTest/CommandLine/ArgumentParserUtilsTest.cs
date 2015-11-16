@@ -59,6 +59,16 @@ namespace UtilsTest.CommandLine
             Assert.AreEqual("i-jk", param.Item1);
             Assert.AreEqual("kval", param.Item2);
 
+            param = ArgumentParserUtils.ParseParam("--l-mn=mval-with-hyphen");
+            Assert.IsNotNull(param);
+            Assert.AreEqual("l-mn", param.Item1);
+            Assert.AreEqual("mval-with-hyphen", param.Item2);
+
+            param = ArgumentParserUtils.ParseParam("/o:oval-with-hyphen");
+            Assert.IsNotNull(param);
+            Assert.AreEqual("o", param.Item1);
+            Assert.AreEqual("oval-with-hyphen", param.Item2);
+
             // Paths or spaces
             param = ArgumentParserUtils.ParseParam(@"/path:Z:\Dir\File.Ext");
             Assert.IsNotNull(param);
