@@ -52,10 +52,12 @@
     <Compile Include="Dgml\GraphHelper.cs" />
     <Compile Include="Dgml\Link.cs" />
     <Compile Include="Dgml\Node.cs" />
+    <Compile Include="Dgml\Style.cs" />
     <Compile Include="Gates\GateKeeper.cs" />
     <Compile Include="Gates\IGate.cs" />
     <Compile Include="Gates\MockGate.cs" />
     <Compile Include="Gates\Enums.cs" />
+    <Compile Include="Graph\Extensions\TopologicalSorter.cs" />
     <Compile Include="Logging\ConsoleLogger.cs" />
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\LogHelper.cs" />

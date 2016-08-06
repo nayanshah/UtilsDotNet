@@ -17,14 +17,21 @@ namespace Utils.Dgml
         public string Label;
 
         /// <summary>
+        /// Category for the node
+        /// </summary>
+        [XmlAttribute]
+        public string Category;
+
+        /// <summary>
         /// Creates a new <see cref="Node"/>
         /// </summary>
         /// <param name="id">Id for node</param>
         /// <param name="label">Label for node</param>
-        public Node(string id, string label)
+        public Node(string id, string label = null, string category = null)
         {
             Id = id;
-            Label = label;
+            Label = label ?? id;
+            Category = category;
         }
     }
 }
