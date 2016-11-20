@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Text.RegularExpressions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Utils.Dgml;
 
 namespace UtilsTest.Dgml
@@ -12,7 +13,7 @@ namespace UtilsTest.Dgml
             Graph graph = new Graph();
             string actualDgml = graph.ToDgml();
 
-            Assert.AreEqual(EmptyDgml, actualDgml);
+            MatchDgml(EmptyDgml, actualDgml);
         }
 
         [TestMethod]
@@ -30,7 +31,7 @@ namespace UtilsTest.Dgml
 
             string actualDgml = graph.ToDgml();
 
-            Assert.AreEqual(ValidDgml, actualDgml);
+            MatchDgml(ValidDgml, actualDgml);
         }
 
         [TestMethod]
@@ -50,7 +51,7 @@ namespace UtilsTest.Dgml
 
             string actualDgml = graph.ToDgml();
 
-            Assert.AreEqual(StyledDgml, actualDgml);
+            MatchDgml(StyledDgml, actualDgml);
         }
 
         [TestMethod]
@@ -74,7 +75,15 @@ namespace UtilsTest.Dgml
 
             string actualDgml = graph.ToDgml();
 
-            Assert.AreEqual(CategoriesDgml, actualDgml);
+            MatchDgml(CategoriesDgml, actualDgml);
+        }
+
+        private void MatchDgml(string expected, string actual)
+        {
+            Assert.AreEqual(
+                Regex.Replace(expected, @"\r|\n", ""),
+                Regex.Replace(actual, @"\r|\n", "")
+            );
         }
 
         private const string EmptyDgml =
@@ -115,7 +124,7 @@ namespace UtilsTest.Dgml
 @"<?xml version=""1.0"" encoding=""utf-8""?>
 <DirectedGraph xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" xmlns=""http://schemas.microsoft.com/vs/2009/dgml"">
   <Nodes>
-    <Node Id=""1"" Label=""first"" Category=""category"" />
+    <Node Id=""1"" Label=""first"" Category=""number"" />
     <Node Id=""2"" Label=""second"" />
   </Nodes>
   <Links>
