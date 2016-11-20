@@ -50,7 +50,28 @@ namespace UtilsTest.Dgml
             MatchGraph(expectedGraph, graph);
         }
 
-        private Graph CreateGraph(IDictionary<string, ICollection<string>> inputGraph)
+        [TestMethod]
+        public void TestToGraph_IncomingLinks()
+        {
+            IDictionary<string, ICollection<string>> inputGraph = new Dictionary<string, ICollection<string>>
+            {
+                { "node-1", new string[] { "node-2", } },
+                { "node-2", new string[] { } },
+            };
+
+            Graph graph = CreateGraph(inputGraph, true);
+
+            IDictionary<string, ICollection<string>> expectedGraph = new Dictionary<string, ICollection<string>>
+            {
+                { "node-1", new string[] { } },
+                { "node-2", new string[] { "node-1", } },
+            };
+
+            Assert.IsNotNull(graph);
+            MatchGraph(expectedGraph, graph);
+        }
+
+        private Graph CreateGraph(IDictionary<string, ICollection<string>> inputGraph, bool incomingLinks = false)
         {
             IList<CustomNode> nodes = inputGraph.Keys.Select(node => new CustomNode { Name = node }).ToList();
 
@@ -61,7 +82,7 @@ namespace UtilsTest.Dgml
 
             NodeCreator<CustomNode> creator = node => new Node(node.Name);
 
-            return nodes.ToGraph(creator, resolver);
+            return nodes.ToGraph(creator, resolver, incomingLinks);
         }
 
         private void MatchGraph(IDictionary<string, ICollection<string>> expectedGraph, Graph actualGraph)

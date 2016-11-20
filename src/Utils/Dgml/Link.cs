@@ -23,16 +23,23 @@ namespace Utils.Dgml
         public string Label;
 
         /// <summary>
+        /// Category for the link
+        /// </summary>
+        [XmlAttribute]
+        public string Category;
+
+        /// <summary>
         /// Creates a new <see cref="Link"/>
         /// </summary>
         /// <param name="source">Source node</param>
         /// <param name="target">Target node</param>
         /// <param name="label">Label for link</param>
-        public Link(string source, string target, string label = null)
+        public Link(string source, string target, string label = null, string category = null)
         {
             Source = source;
             Target = target;
             Label = label ?? string.Empty;
+            Category = category;
         }
     }
 }

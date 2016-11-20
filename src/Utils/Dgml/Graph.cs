@@ -20,6 +20,11 @@ namespace Utils.Dgml
         /// <summary>
         /// List of links
         /// </summary>
+        public Category[] Categories;
+
+        /// <summary>
+        /// List of links
+        /// </summary>
         public Style[] Styles;
 
         /// <summary>
@@ -49,13 +54,18 @@ namespace Utils.Dgml
                 Encoding = Encoding.UTF8,
             };
 
-            StringWriter dgml = new StringWriter();
+            StringWriter dgml = new Utf8StringWriter();
             using (XmlWriter xmlWriter = XmlWriter.Create(dgml, settings))
             {
                 serializer.Serialize(xmlWriter, this);
             }
 
             return dgml.ToString();
+        }
+
+        internal class Utf8StringWriter : StringWriter
+        {
+            public override Encoding Encoding => Encoding.UTF8;
         }
     }
 }
