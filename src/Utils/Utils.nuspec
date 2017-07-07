@@ -10,8 +10,8 @@
     <iconUrl>https://github.com/nayanshah/UtilsDotNet/raw/master/res/128/UtilsDotNet.png</iconUrl>
     <projectUrl>https://github.com/nayanshah/UtilsDotNet</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>C# utility components - Argument Parser (Console), Logging, T4 Templates Base, Process helper</description>
+    <description>C# utility components - DGML, Graphs, Argument Parser (Console), Logging, T4 Templates Base, Process helper</description>
     <copyright>Copyright 2015</copyright>
-    <tags>C# .NET Utility Console Parser Logging Library Extensions Helpers</tags>
+    <tags>C# .NET Utility DGML Graph Console Parser Logging Library Extensions Helpers</tags>
   </metadata>
 </package>
