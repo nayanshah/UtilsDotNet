@@ -49,6 +49,9 @@
     <Compile Include="CommandLine\OptionalAttribute.cs" />
     <Compile Include="CommandLine\ParamAttribute.cs" />
     <Compile Include="Dgml\Category.cs" />
+    <Compile Include="Dgml\DgmlHelper.cs" />
+    <Compile Include="Dgml\DirectedGraph.cs" />
+    <Compile Include="Dgml\DirectedGraphPartial.cs" />
     <Compile Include="Dgml\Extensions\GraphCreator.cs" />
     <Compile Include="Dgml\Graph.cs" />
     <Compile Include="Dgml\GraphHelper.cs" />

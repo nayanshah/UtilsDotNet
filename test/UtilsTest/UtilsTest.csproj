@@ -55,6 +55,8 @@
     <Compile Include="CommandLine\ArgumentParserTest.cs" />
     <Compile Include="CommandLine\ArgumentParserUtilsTest.cs" />
     <Compile Include="CommandLine\TestParams.cs" />
+    <Compile Include="Dgml\DirectedGraphCreatorTest.cs" />
+    <Compile Include="Dgml\DirectedGraphTest.cs" />
     <Compile Include="Dgml\GraphCreatorTest.cs" />
     <Compile Include="Dgml\GraphTest.cs" />
     <Compile Include="Gates\GateKeeperTest.cs" />
